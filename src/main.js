@@ -16,6 +16,25 @@ export default {
       navigationBarBackgroundColor: '#fff',
       navigationBarTitleText: 'Jane\' book',
       navigationBarTextStyle: 'black'
+    },
+    tabBar: {
+      list: [
+        { pagePath: 'pages/index/main',
+          iconPath: 'static/img/book.png',
+          selectedIconPath: 'static/img/book-active.png',
+          text: '列表'
+        },
+        { pagePath: 'pages/comments/main',
+          iconPath: 'static/img/other.png',
+          selectedIconPath: 'static/img/other-active.png',
+          text: '评论'
+        },
+        { pagePath: 'pages/me/main',
+          iconPath: 'static/img/me.png',
+          selectedIconPath: 'static/img/me-active.png',
+          text: '我'
+        }
+      ]
     }
   }
 }
