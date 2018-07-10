@@ -2,6 +2,7 @@
 
 - 启动： `mysql -u root -p`
 - 创建名称为cAuth的数据库： `create database cAuth`;
+- 使用名为cAuth的数据库： `use cAuth`;
 - 找到项目,切换到路径"/server": `cd server`;
 - 运行initdb.js: `node tools/initdb.js`;
 - 查询：`select * from cSessionInfo;`;
