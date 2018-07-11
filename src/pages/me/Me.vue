@@ -11,7 +11,7 @@
 </template>
 
 <script>
-  import {showSuccess} from '@/util'
+  import {showSuccess, post, showModal} from '@/util'
   import qcloud from 'wafer2-client-sdk'
   import config from '@/config'
   import YearProgress from '@/components/YearProgress'
@@ -28,9 +28,21 @@
       }
     },
     methods: {
+      async addBook(isbn){
+        console.log(isbn)
+        const res = await post('/weapp/addBook',{
+          isbn,
+          openid:this.userinfo.openId
+        })
+        showModal('添加成功',`${res.title}添加成功`)
+      },
       scanBook () {
         // 允许从相机和相册扫码
-        wx.scanCode({ success: (res) => { console.log('扫码', res) } })
+        wx.scanCode({ success: (res) => { 
+          if (res.result) {
+            this.addBook(res.result)
+          }
+        } })
       },
       login () {
         // 设置登录地址
