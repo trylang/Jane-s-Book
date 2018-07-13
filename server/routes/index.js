@@ -17,12 +17,6 @@ router.get('/login', authorizationMiddleware, controllers.login)
 // 用户信息接口（可以用来验证登录态）
 router.get('/user', validationMiddleware, controllers.user)
 
-// demo
-router.get('/demo', controllers.demo)
-
-// addBook
-router.post('/addBook', controllers.addBook)
-
 // --- 图片上传 Demo --- //
 // 图片上传接口，小程序端可以直接将 url 填入 wx.uploadFile 中
 router.post('/upload', controllers.upload)
@@ -38,5 +32,13 @@ router.post('/tunnel', controllers.tunnel.post)
 router.get('/message', controllers.message.get)
 // POST 用来处理微信转发过来的客服消息
 router.post('/message', controllers.message.post)
+
+
+// demo
+router.get('/demo', controllers.demo)
+// addBook
+router.post('/addBook', controllers.addBook)
+// liat
+router.get('/booklist', controllers.booklist)
 
 module.exports = router

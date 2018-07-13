@@ -21,8 +21,7 @@
         price varchar(100),
         rate float,
         tags varchar(100),
-        author varchar(100),
-        count int(11) not null
+        author varchar(100)
     );`
 
 - 查看表结构： `desc books;`

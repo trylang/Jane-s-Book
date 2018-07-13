@@ -2,6 +2,7 @@
   <div class="container">
     <div class="userinfo" @click='login'>
       <img :src="userinfo.avatarUrl" alt="">
+      <button open-type="getUserInfo" lang="zh_CN" @getuserinfo="doLogin">获取用户信息</button> 
       <p>{{userinfo.nickName}}</p>
     </div>
     <YearProgress></YearProgress>
@@ -28,17 +29,16 @@
       }
     },
     methods: {
-      async addBook(isbn){
-        console.log(isbn)
-        const res = await post('/weapp/addBook',{
+      async addBook (isbn) {
+        const res = await post('/weapp/addBook', {
           isbn,
-          openid:this.userinfo.openId
+          openid: this.userinfo.openId
         })
-        showModal('添加成功',`${res.title}添加成功`)
+        showModal('添加成功', `${res.title}添加成功`)
       },
       scanBook () {
         // 允许从相机和相册扫码
-        wx.scanCode({ success: (res) => { 
+        wx.scanCode({ success: (res) => {
           if (res.result) {
             this.addBook(res.result)
           }
